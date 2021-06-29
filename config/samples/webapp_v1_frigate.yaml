@@ -1,0 +1,7 @@
+apiVersion: webapp.example.com/v1
+kind: Frigate
+metadata:
+  name: frigate-sample
+spec:
+  # Add fields here
+  foo: bar
