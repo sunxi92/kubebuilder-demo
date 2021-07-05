@@ -29,18 +29,22 @@ type FrigateSpec struct {
 	// Important: Run "make" to regenerate code after modifying this file
 
 	// Foo is an example field of Frigate. Edit frigate_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	Foo       string `json:"foo,omitempty"`
+	FirstName string `json:"firstname"`
+	LastName  string `json:"lastname"`
 }
 
 // FrigateStatus defines the observed state of Frigate
 type FrigateStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
+	Status string `json:"Status"`
 }
 
 //+kubebuilder:object:root=true
 //+kubebuilder:subresource:status
-
+//+kubebuilder:printcolumn:JSONPath=".status.Status",name=status,type=string
+//+kubebuilder:printcolumn:name="Age",type="date",JSONPath=".metadata.creationTimestamp"
 // Frigate is the Schema for the frigates API
 type Frigate struct {
 	metav1.TypeMeta   `json:",inline"`
